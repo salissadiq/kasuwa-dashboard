@@ -7,10 +7,10 @@ interface LayoutProps {
     children: React.ReactNode,
     params: { storeId: string }
 }
-export default async function Layout({ children, params }: LayoutProps) {
+export default async function DashboardLayout({ children, params }: LayoutProps) {
     const { userId } = auth()
 
-    if (!userId) redirect('/sign-in')
+    if (!userId) { redirect('/sign-in') }
 
     const store = prismadb.store.findFirst({
         where: {
@@ -18,11 +18,12 @@ export default async function Layout({ children, params }: LayoutProps) {
             userId
         }
     })
-    if (!store) redirect('/')
+    if (!store) { redirect('/') }
+    console.log('>>>>>>>>', store);
 
     return (
         <>
-            <div>This will be a Navbar</div>
+            <div>This will be a Navbarsss </div>
             {children}
         </>
     )
