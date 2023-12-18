@@ -19,11 +19,10 @@ export default async function DashboardLayout({ children, params }: LayoutProps)
         }
     })
     if (!store) { redirect('/') }
-    console.log('>>>>>>>>', store);
 
     return (
         <>
-            <div>This will be a Navbarsss </div>
+            <div>This will be a Navbar </div>
             {children}
         </>
     )
